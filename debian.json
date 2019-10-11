@@ -1,0 +1,10 @@
+{
+    "name": "Z-YeeLight",
+    "description": "Control your YeeLight bulbs from your computer.",
+    "homepage": "https://benjamin.caradeuc.info",
+    "src": "dist/z-yeelight-linux-x64/",
+    "dest": "installers/",
+    "arch": "amd64",
+    "icon": "public/logo512.png",
+    "categories": [ "Utility" ]
+}

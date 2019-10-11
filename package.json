@@ -1,17 +1,34 @@
 {
   "name": "z-yeelight",
+  "description": "Control your YeeLight bulbs from your computer.",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Benjamin Caradeuc",
+    "email": "benjamin@caradeuc.info",
+    "url": "https://benjamin.caradeuc.info"
+  },
+  "main": "electron.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "npm start",
+    "start": "nf start -p 3000",
+    "start:react": "BROWSER=none react-scripts start",
+    "start:electron": "electron .",
+    "build": "npm run build:react && npm run build:electron",
+    "build:react": "react-scripts build",
+    "build:electron": "electron-packager ./ z-yeelight --ignore=src --ignore=public --ignore=Procfile --out=dist --icon=public/favicon.ico --asar=true --platform=linux --arch=x64 --overwrite",
+    "postbuild:electron": "electron-installer-debian --config debian.json"
+  },
   "dependencies": {
     "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-dom": "^16.10.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "electron": "^6.0.12",
+    "electron-installer-debian": "^2.0.1",
+    "electron-packager": "^14.0.6",
+    "foreman": "^3.0.1",
+    "react-scripts": "^3.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"
