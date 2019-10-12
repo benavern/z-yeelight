@@ -41,7 +41,7 @@
     "extends": "react-app"
   },
   "nodemonConfig": {
-    "watch": ["electron.js", "src/*", "public/*", "light/*"],
+    "watch": ["electron.js", "light/*"],
     "delay": "1000"
   },
   "browserslist": {
