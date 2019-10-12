@@ -9,28 +9,36 @@ const myLight = new Yeelight({ lightIp: '192.168.1.18', lightPort: 55443 })
 
 module.exports = {
     setRed () {
+        console.log('New Color :', red)
         return setColor(myLight, red);
     },
     setGreen () {
+        console.log('New Color :', green)
         return setColor(myLight, green);
     },
     setBlue () {
+        console.log('New Color :', blue)
         return setColor(myLight, blue);
     },
     setWhite () {
+        console.log('New Color :', white)
         return setColor(myLight, white);
     },
+    setCustom({ r, g, b }) {
+        console.log('New Color :', { r, g, b })
+        return setColor(myLight, new Color(r, g, b))
+    }
 }
 
-async function setColor(l, c) {
+async function setColor(light, color) {
     return new Promise(async (success, fail) => {
         try {
-            await l.connect()
-            await l.setRGB(c, "smooth", 500)
-            await l.disconnect()
+            await light.connect()
+            await light.setRGB(color, "sudden")
+            await light.disconnect()
             success()
-        } catch (e) {
-            fail(e)
+        } catch (error) {
+            fail(error)
         }
     })
 }
