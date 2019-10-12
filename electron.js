@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
+const lightBus = require('./light/bus')
+
+const ipc = electron.ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -13,7 +16,13 @@ let mainWindow;
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({
+        width: 1200,
+        height: 900,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
 
     // and load the application.
     const electronUrl = process.env.ELECTRON_START_URL || url.format({
@@ -27,6 +36,8 @@ function createWindow() {
     if (process.env.ELECTRON_OPEN_DEVTOOLS === 'true') {
         mainWindow.webContents.openDevTools();
     }
+
+    lightBus(ipc)
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

@@ -8,20 +8,27 @@
     "url": "https://benjamin.caradeuc.info"
   },
   "main": "electron.js",
+  "bin": "light/cli.js",
   "homepage": "./",
   "scripts": {
     "dev": "npm start",
     "start": "nf start -p 3000",
-    "start:react": "BROWSER=none react-scripts start",
+    "start:react": "npx serve ./build",
+    "start:react:dev": "BROWSER=none react-scripts start",
     "start:electron": "electron .",
+    "start:electron:dev": "npm run start:electron",
     "build": "npm run build:react && npm run build:electron",
     "build:react": "react-scripts build",
     "build:electron": "electron-packager ./ z-yeelight --ignore=src --ignore=public --ignore=Procfile --out=dist --icon=public/favicon.ico --asar=true --platform=linux --arch=x64 --overwrite",
-    "postbuild:electron": "electron-installer-debian --config debian.json"
+    "postbuild:electron": "electron-installer-debian --config debian.json",
+    "cleanup": "rimraf build dist installers"
   },
   "dependencies": {
+    "node-yeelight-wifi": "^0.1.4",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "yeelight-awesome": "^1.0.12",
+    "yeelight-node-binding": "^1.1.1"
   },
   "devDependencies": {
     "electron": "^6.0.12",
