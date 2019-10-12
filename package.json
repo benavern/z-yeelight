@@ -16,7 +16,7 @@
     "start:react": "npx serve ./build",
     "start:react:dev": "BROWSER=none react-scripts start",
     "start:electron": "electron .",
-    "start:electron:dev": "npm run start:electron",
+    "start:electron:dev": "nodemon --exec electron .",
     "build": "npm run build:react && npm run build:electron",
     "build:react": "react-scripts build",
     "build:electron": "electron-packager ./ z-yeelight --ignore=src --ignore=public --ignore=Procfile --out=dist --icon=public/favicon.ico --asar=true --platform=linux --arch=x64 --overwrite",
@@ -24,21 +24,25 @@
     "cleanup": "rimraf build dist installers"
   },
   "dependencies": {
-    "node-yeelight-wifi": "^0.1.4",
     "react": "^16.10.2",
+    "react-color": "^2.17.3",
     "react-dom": "^16.10.2",
-    "yeelight-awesome": "^1.0.12",
-    "yeelight-node-binding": "^1.1.1"
+    "yeelight-awesome": "^1.0.12"
   },
   "devDependencies": {
     "electron": "^6.0.12",
     "electron-installer-debian": "^2.0.1",
     "electron-packager": "^14.0.6",
     "foreman": "^3.0.1",
+    "nodemon": "^1.19.3",
     "react-scripts": "^3.2.0"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "nodemonConfig": {
+    "watch": ["electron.js", "src/*", "public/*", "light/*"],
+    "delay": "1000"
   },
   "browserslist": {
     "production": [

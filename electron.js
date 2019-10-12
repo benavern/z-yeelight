@@ -8,6 +8,7 @@ const path = require('path');
 const url = require('url');
 const lightBus = require('./light/bus')
 
+// use ipc protocol to connect renderer and main processes both ways
 const ipc = electron.ipcMain;
 
 // Keep a global reference of the window object, if you don't, the window will
