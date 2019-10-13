@@ -1,9 +1,7 @@
-const electron = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const lightBus = require('./light/bus')
-
-const { app, BrowserWindow, ipcMain } = electron
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,12 +10,18 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 900,
+    name: 'Z-YeeLight',
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true
     }
   });
+
+  // Remove the menu bar.
+  mainWindow.setMenu(null)
+  mainWindow.removeMenu()
+  mainWindow.setMenuBarVisibility(false)
 
   // and load the application.
   const electronUrl = process.env.ELECTRON_START_URL || url.format({
