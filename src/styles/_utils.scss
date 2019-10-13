@@ -1,0 +1,14 @@
+pre.debug {
+  display: block;
+  margin: 1em;
+  padding: 1em;
+  text-align: left;
+  font-size: 14px;
+  font-family:"Courier New", Courier, monospace;
+  background-color: #333;
+  color: #bada55;
+  max-height: 30em;
+  overflow: auto;
+  border: .5em solid #bbb;
+  border-radius: .25em;
+}

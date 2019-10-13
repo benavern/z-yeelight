@@ -5,40 +5,58 @@ const green = new Color(0, 255, 0)
 const blue = new Color(0, 0, 255)
 const white = new Color(255, 255, 255)
 
-const myLight = new Yeelight({ lightIp: '192.168.1.18', lightPort: 55443 })
-
 module.exports = {
-  setRed () {
+  setRed ({ light }) {
     console.log('New Color :', red)
-    return setColor(myLight, red)
+    return setColor(light, red)
   },
-  setGreen () {
+  setGreen ({ light }) {
     console.log('New Color :', green)
-    return setColor(myLight, green)
+    return setColor(light, green)
   },
-  setBlue () {
+  setBlue ({ light }) {
     console.log('New Color :', blue)
-    return setColor(myLight, blue)
+    return setColor(light, blue)
   },
-  setWhite () {
+  setWhite ({ light }) {
     console.log('New Color :', white)
-    return setColor(myLight, white)
+    return setColor(light, white)
   },
-  setCustom({ r, g, b }) {
+  setCustom({ light, rgb: { r, g, b } }) {
     console.log('New Color :', { r, g, b })
-    return setColor(myLight, new Color(r, g, b))
+    return setColor(light, new Color(r, g, b))
   },
+  setName({ light, name }) {
+    console.log('New Name : ', name)
+    return setName(light, name)
+  },
+
   discover() {
     return discover()
   }
 }
 
 function setColor(light, color) {
+  const device = new Yeelight({ lightIp: light.host, lightPort: light.port })
   return new Promise(async (success, fail) => {
     try {
-      await light.connect()
-      await light.setRGB(color, "sudden")
-      await light.disconnect()
+      await device.connect()
+      await device.setRGB(color, "sudden")
+      await device.disconnect()
+      success()
+    } catch (error) {
+      fail(error)
+    }
+  })
+}
+
+function setName(light, name) {
+  const device = new Yeelight({ lightIp: light.host, lightPort: light.port })
+  return new Promise(async (success, fail) => {
+    try {
+      await device.connect()
+      await device.setName(name)
+      await device.disconnect()
       success()
     } catch (error) {
       fail(error)

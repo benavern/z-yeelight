@@ -8,7 +8,6 @@ import LightPage from './pages/LightPage'
 import AboutPage from './pages/AboutPage'
 
 // import { SketchPicker } from 'react-color'
-// const { ipcRenderer } = window.require('electron')
 
 class App extends Component {
 
