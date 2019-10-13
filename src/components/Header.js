@@ -5,17 +5,11 @@ export default class Header extends Component {
   render() {
     return (
       <header>
-        <ul>
-          <li>
-            <NavLink to="/">Accueil</NavLink>
-          </li>
-          <li>
-            <NavLink to="/light/yolo">light</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-        </ul>
+        <nav className="menu">
+          <NavLink to="/lights">Ampoules</NavLink>
+
+          <NavLink to="/about">À propos</NavLink>
+        </nav>
       </header>
     )
   }

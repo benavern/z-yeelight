@@ -1,3 +1,12 @@
 @import './variables';
 @import './reset';
 @import './utils';
+
+@import './layout/app';
+@import './layout/header';
+
+@import './pages/lights';
+
+@import './components/icon';
+@import './components/lightItem';
+@import './components/lightStatus';

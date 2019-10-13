@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 
 import Header from './components/Header'
-import Footer from './components/Footer'
-import HomePage from './pages/HomePage'
+import LightsPage from './pages/LightsPage'
 import LightPage from './pages/LightPage'
 import AboutPage from './pages/AboutPage'
 
@@ -14,25 +13,19 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <div className="app">
-          <Header />
+        <Header />
 
-          <main>
-            <div className="container">
-              <Switch>
-                <Route path="/" exact component={HomePage} />
+        <main>
+          <Switch>
+            <Route path="/lights" exact component={LightsPage} />
 
-                <Route path="/light/:id" component={LightPage} />
+            <Route path="/lights/:id" component={LightPage} />
 
-                <Route path="/about" exact component={AboutPage} />
+            <Route path="/about" exact component={AboutPage} />
 
-                <Redirect to="/"/>
-              </Switch>
-            </div>
-          </main>
-
-          <Footer/>
-        </div>
+            <Redirect to="/lights"/>
+          </Switch>
+        </main>
       </HashRouter>
     )
   }

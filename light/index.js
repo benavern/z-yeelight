@@ -67,7 +67,7 @@ function setName(light, name) {
 function discover () {
   return new Promise(async (success, fail) => {
     let discover
-    discover = new Discover()
+    discover = new Discover({ debug: true, timeout: 5000 })
     try {
       const lights = await discover.start()
       await discover.destroy()

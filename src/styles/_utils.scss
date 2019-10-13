@@ -10,5 +10,5 @@ pre.debug {
   max-height: 30em;
   overflow: auto;
   border: .5em solid #bbb;
-  border-radius: .25em;
+  border-radius: $border-radius;
 }

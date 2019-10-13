@@ -1,0 +1,12 @@
+.icon {
+  display: inline-block;
+  height: 100%;
+  width: 2em;
+  padding: 0 .5em;
+
+  &.inline {
+    height: 1em;
+    width: 1em;
+    padding: unset;
+  }
+}

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import LightItem from '../components/LightItem'
 const { ipcRenderer } = window.require('electron')
 
-export default class HomePage extends Component {
+export default class LightsPage extends Component {
 
   constructor() {
     super()
@@ -20,20 +21,23 @@ export default class HomePage extends Component {
   }
 
   render() {
-    return (
-      <div id="#home">
-        <button onClick={this.discover.bind(this)} disabled={this.state.loading}>Reload</button>
+    let list
+    if (this.state.loading) {
+      list = (<div className="light-item">Recherche en cours...</div>)
+    } else if (this.state.lights.length) {
+      list = this.state.lights.map(light => (
+        <LightItem key={ light.id } light={ light } />
+      ))
+    } else {
+      list = (<div className="light-item">Aucune ampoule détectée.</div>)
+    }
 
+    return (
+      <div id="lights">
         <div className="list">
-        {
-          this.state.lights.map(light => (
-            <div className="list-item" key={light.id}>
-              { light.location }
-              <button onClick={() => this.setName(light)}>Rename</button>
-            </div>
-          ))
-        }
+          { list }
         </div>
+        <button onClick={ this.discover.bind(this) }>Rechercher</button>
       </div>
     )
   }

@@ -1,0 +1,23 @@
+.light-status {
+  display: inline-block;
+  width: 3em;
+  text-align: center;
+  background-color: $gray;
+  border: 1px solid $black;
+  border-radius: $border-radius;
+
+  &.on {
+    background-color: $primary;
+
+    &:before {
+      content: 'on';
+    }
+  }
+
+  &.off {
+    background-color: $danger;
+    &:before {
+      content: 'off';
+    }
+  }
+}
