@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { discover } from './store/actions/lights'
 
 import Header from './components/Header'
 import LightsPage from './pages/LightsPage'
@@ -9,6 +11,10 @@ import AboutPage from './pages/AboutPage'
 // import { SketchPicker } from 'react-color'
 
 class App extends Component {
+
+  componentWillMount() {
+    this.props.discover()
+  }
 
   render() {
     return (
@@ -31,4 +37,8 @@ class App extends Component {
   }
 }
 
-export default App
+const mapDispatchToProps = dispatch => ({
+  discover: () => dispatch(discover())
+})
+
+export default connect(null, mapDispatchToProps)(App)

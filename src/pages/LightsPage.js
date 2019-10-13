@@ -5,10 +5,6 @@ import { discover } from '../store/actions/lights'
 
 class LightsPage extends Component {
 
-  componentWillMount() {
-    this.discover()
-  }
-
   render() {
     let list
     if (this.props.loading) {
@@ -27,13 +23,9 @@ class LightsPage extends Component {
           { list }
         </div>
 
-        <button onClick={ () => this.discover() }>Rechercher</button>
+        <button onClick={ this.props.discover }>Rechercher</button>
       </div>
     )
-  }
-
-  discover() {
-    this.props.discover()
   }
 }
 
