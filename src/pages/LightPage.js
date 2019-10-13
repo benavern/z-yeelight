@@ -76,7 +76,8 @@ class LightPage extends Component {
 
   setBright(light, color) {
     this.setState({ color: color.rgb })
-    this.props.setBright(light, color.rgb.a * 100)
+    const brightness = Math.max(1, color.rgb.a * 100)
+    this.props.setBright(light, brightness)
   }
 }
 
