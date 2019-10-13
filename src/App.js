@@ -8,11 +8,9 @@ import LightsPage from './pages/LightsPage'
 import LightPage from './pages/LightPage'
 import AboutPage from './pages/AboutPage'
 
-// import { SketchPicker } from 'react-color'
-
 class App extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.discover()
   }
 

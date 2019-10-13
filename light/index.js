@@ -1,34 +1,24 @@
 const { Discover, Yeelight, Color } = require("yeelight-awesome")
 
-const red = new Color(255, 0, 0)
-const green = new Color(0, 255, 0)
-const blue = new Color(0, 0, 255)
-const white = new Color(255, 255, 255)
-
 module.exports = {
-  setRed ({ light }) {
-    console.log('New Color :', red)
-    return setColor(light, red)
+  setColor({ light, color }) {
+    console.log('New Color :', color)
+    return setColor(light, new Color(color.r, color.g, color.b))
   },
-  setGreen ({ light }) {
-    console.log('New Color :', green)
-    return setColor(light, green)
-  },
-  setBlue ({ light }) {
-    console.log('New Color :', blue)
-    return setColor(light, blue)
-  },
-  setWhite ({ light }) {
-    console.log('New Color :', white)
-    return setColor(light, white)
-  },
-  setCustom({ light, rgb: { r, g, b } }) {
-    console.log('New Color :', { r, g, b })
-    return setColor(light, new Color(r, g, b))
-  },
+
   setName({ light, name }) {
     console.log('New Name : ', name)
     return setName(light, name)
+  },
+
+  setPower({ light, power }) {
+    console.log('New power : ', power)
+    return setPower(light, power)
+  },
+
+  setBright({ light, bright }) {
+    console.log('New bright : ', bright)
+    return setBright(light, bright)
   },
 
   discover() {
@@ -56,6 +46,34 @@ function setName(light, name) {
     try {
       await device.connect()
       await device.setName(name)
+      await device.disconnect()
+      success()
+    } catch (error) {
+      fail(error)
+    }
+  })
+}
+
+function setPower(light, power) {
+  const device = new Yeelight({ lightIp: light.host, lightPort: light.port })
+  return new Promise(async (success, fail) => {
+    try {
+      await device.connect()
+      await device.setPower(power)
+      await device.disconnect()
+      success()
+    } catch (error) {
+      fail(error)
+    }
+  })
+}
+
+function setBright(light, bright) {
+  const device = new Yeelight({ lightIp: light.host, lightPort: light.port })
+  return new Promise(async (success, fail) => {
+    try {
+      await device.connect()
+      await device.setBright(bright).catch(e => console.log(e))
       await device.disconnect()
       success()
     } catch (error) {
