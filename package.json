@@ -27,11 +27,15 @@
     "react": "^16.10.2",
     "react-color": "^2.17.3",
     "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "yeelight-awesome": "^1.0.12"
   },
   "devDependencies": {
     "electron": "^6.0.12",
+    "electron-devtools-installer": "^2.2.4",
     "electron-installer-debian": "^2.0.1",
     "electron-packager": "^14.0.6",
     "foreman": "^3.0.1",
