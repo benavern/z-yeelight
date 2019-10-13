@@ -20,3 +20,12 @@ body {
   background-color: $dark;
   color: $light;
 }
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
