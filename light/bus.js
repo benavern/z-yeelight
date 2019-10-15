@@ -15,6 +15,7 @@ module.exports = function(bus) {
     console.log('set:power', args)
     lib.setPower(args)
   })
+
   bus.on('set:bright', (e, args) => {
     console.log('set:bright', args)
     lib.setBright(args)
