@@ -5,7 +5,7 @@ import { discover } from './store/actions/lights'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
-import LightsPage from './pages/LightsPage'
+import Favorites from './pages/FavoritesPage'
 import LightPage from './pages/LightPage'
 
 class App extends Component {
@@ -21,12 +21,12 @@ class App extends Component {
 
         <main>
           <Switch>
-            <Route path="/mine" exact component={LightsPage} />
-            <Route path="/network" exact component={LightsPage} />
+            <Route path="/favorites" exact component={Favorites} />
+            <Route path="/discovered" exact component={Favorites} />
 
             <Route path="/light/:id" component={LightPage} />
 
-            <Redirect to="/mine"/>
+            <Redirect to="/favorites"/>
           </Switch>
         </main>
 

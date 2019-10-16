@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <footer id="footer">
         <nav className="menu">
-          <NavLink to="/mine">Favorites</NavLink>
+          <NavLink to="/favorites">Favorites</NavLink>
 
           <NavLink to="/network">Discovered</NavLink>
         </nav>
