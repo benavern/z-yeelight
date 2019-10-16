@@ -1,30 +1,59 @@
 #footer {
+  padding: 0 4rem 1.5rem;
+
   .menu {
     display: flex;
-    border: 1px solid $black;
-    overflow: hidden;
-    margin: 1rem;
+    justify-content: space-evenly;
 
     a {
-      color: $light;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $white;
       text-decoration: none;
-      padding: 0 2rem;
-      background-color: $gray;
+      opacity: .5;
 
-      &:not(:last-child) {
-        border-right: 1px solid $black;
+      .nav-icon {
+        position: relative;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: rgba($white, .3);
+        box-shadow: .15rem .15rem .5rem rgba($black, .65);
+
+        .icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          &.heart {
+            font-size: 1.2rem;
+          }
+
+          &.question {
+            font-size: .65rem;
+          }
+        }
       }
 
-      &:hover {
-        background-color: $gray-light;
+      .nav-text {
+        font-size: .5rem;
+        font-weight: bold;
+        margin-top: .5rem;
       }
 
-      &:active {
-        background-color: $black;
+      &:hover,
+      &:active,
+      &.active {
+        opacity: 1;
       }
 
       &.active {
-        background-color: $primary;
+        .nav-icon {
+          background-color: $white;
+          color: $black;
+        }
       }
     }
   }
