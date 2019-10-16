@@ -4,15 +4,29 @@ pre.debug {
   padding: 1em;
   text-align: left;
   font-size: 14px;
-  font-family:"Courier New", Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background-color: #333;
   color: #bada55;
   max-height: 30em;
   overflow: auto;
   border: .5em solid #bbb;
-  border-radius: $border-radius;
+}
+
+.move {
+  -webkit-app-region: drag
 }
 
 .center {
   text-align: center;
+}
+
+.rotate {
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  } to {
+      transform: rotate(360deg);
+  }
 }

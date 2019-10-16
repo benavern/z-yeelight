@@ -1,5 +1,5 @@
 main {
   padding: 2rem;
-  height: calc(100vh - #{$menu-height});
+  flex: 1;
   overflow-y: auto;
 }

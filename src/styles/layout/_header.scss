@@ -1,37 +1,51 @@
 header {
   display: flex;
-  justify-content: center;
-  height: $menu-height;
+  flex-direction: row;
+  padding: 1.5rem 2rem 0;
 
-  .menu {
+  .logo {
     display: flex;
-    border: 1px solid $black;
-    border-radius: $border-radius;
-    overflow: hidden;
-    margin: 1rem;
+    flex: 1;
 
-    a {
-      color: $light;
-      text-decoration: none;
-      line-height: calc(#{$menu-height} - 2rem);
-      padding: 0 2rem;
-      background-color: $gray;
+    .logo-icon {
+      font-size: 1.3rem;
+      margin-right: .5rem;
+    }
 
-      &:not(:last-child) {
-        border-right: 1px solid $black;
+    .logo-texts {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .logo-copyright {
+        font-size: .3rem;
+        font-style: italic;
+        margin-bottom: .10rem;
+
+        a {
+          color: $primary;
+          text-decoration: none;
+        }
       }
 
-      &:hover {
-        background-color: $gray-light;
+      .logo-title {
+        font-weight: bold;
+        width: 100%;
       }
+    }
+  }
 
-      &:active {
-        background-color: $black;
-      }
+  .window-actions {
+    font-size: .95rem;
 
-      &.active {
-        background-color: $primary;
-      }
+    button {
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background: none;
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
     }
   }
 }

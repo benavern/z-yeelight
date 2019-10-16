@@ -1,0 +1,31 @@
+#footer {
+  .menu {
+    display: flex;
+    border: 1px solid $black;
+    overflow: hidden;
+    margin: 1rem;
+
+    a {
+      color: $light;
+      text-decoration: none;
+      padding: 0 2rem;
+      background-color: $gray;
+
+      &:not(:last-child) {
+        border-right: 1px solid $black;
+      }
+
+      &:hover {
+        background-color: $gray-light;
+      }
+
+      &:active {
+        background-color: $black;
+      }
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+  }
+}

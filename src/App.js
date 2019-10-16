@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import { discover } from './store/actions/lights'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import LightsPage from './pages/LightsPage'
 import LightPage from './pages/LightPage'
-import AboutPage from './pages/AboutPage'
 
 class App extends Component {
 
@@ -21,15 +21,16 @@ class App extends Component {
 
         <main>
           <Switch>
-            <Route path="/lights" exact component={LightsPage} />
+            <Route path="/mine" exact component={LightsPage} />
+            <Route path="/network" exact component={LightsPage} />
 
-            <Route path="/lights/:id" component={LightPage} />
+            <Route path="/light/:id" component={LightPage} />
 
-            <Route path="/about" exact component={AboutPage} />
-
-            <Redirect to="/lights"/>
+            <Redirect to="/mine"/>
           </Switch>
         </main>
+
+        <Footer />
       </HashRouter>
     )
   }

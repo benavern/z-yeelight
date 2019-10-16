@@ -11,8 +11,12 @@ function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     name: 'Z-YeeLight',
-    width: 800,
+    width: 400,
     height: 600,
+    resizable: false,
+    alwaysOnTop: true,
+    frame: false,
+    backgroundColor: '#006464',
     webPreferences: {
       nodeIntegration: true
     }
