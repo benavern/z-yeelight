@@ -23,6 +23,7 @@ pre.debug {
 .rotate {
   animation: rotate 4s linear infinite;
 }
+
 @keyframes rotate {
   from {
       transform: rotate(0deg);

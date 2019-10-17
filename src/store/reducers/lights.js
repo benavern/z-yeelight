@@ -36,7 +36,7 @@ export default (state = defaultState, action) => {
       return {
         list: {
           ...state.list,
-          [action.payload.light.id]: setBright(action.payload.light, action.payload.color)
+          [action.payload.light.id]: setBright(action.payload.light, action.payload.bright)
         },
         loading: state.loading
       }

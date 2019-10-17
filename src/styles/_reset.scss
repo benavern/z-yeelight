@@ -29,7 +29,26 @@ body {
   display: flex;
   flex-direction: column;
 
-  > div {
+  > * {
     width: 100%;
   }
+
+  main {
+    height: 100%;
+    flex: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background: rgba($white, .5);
 }

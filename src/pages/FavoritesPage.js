@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import LightItem from '../components/LightItem'
 import { connect } from 'react-redux'
-import { discover } from '../store/actions/lights'
 
 class LightsPage extends Component {
 
@@ -18,12 +17,10 @@ class LightsPage extends Component {
     }
 
     return (
-      <div id="lights">
+      <div id="favorites">
         <div className="list">
-          { list }
+        { list }
         </div>
-
-        <button onClick={ this.props.discover }>Rechercher</button>
       </div>
     )
   }
@@ -34,8 +31,4 @@ const mapStateToProps = state => ({
   loading: state.lights.loading
 })
 
-const mapDispatchToProps = dispatch => ({
-  discover: () => dispatch(discover())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LightsPage)
+export default connect(mapStateToProps)(LightsPage)

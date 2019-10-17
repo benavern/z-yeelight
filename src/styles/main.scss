@@ -2,9 +2,10 @@
 @import './reset';
 @import './utils';
 
-@import './layout/app';
 @import './layout/header';
 @import './layout/footer';
+
+@import './pages/favorites';
 
 @import './components/icon';
 @import './components/lightItem';

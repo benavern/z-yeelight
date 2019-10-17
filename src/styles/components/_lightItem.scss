@@ -1,9 +1,30 @@
 .light-item {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  background: $primary;
+  color: $white;
+  text-decoration: none;
   padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: .5rem .5rem 1.5rem $black;
 
-  a {
-    color: inherit;
+  .light-icon {
+    font-size: 1.25rem;
+    margin-right: 1rem;
+  }
+
+  .light-info {
+    flex: 1;
+
+    .name {
+      font-weight: bold;
+    }
+
+    .location {
+      font-size: .5rem;
+      font-style: italic;
+      color: rgba($white, .75);
+      padding: .2rem 0;
+    }
   }
 }
