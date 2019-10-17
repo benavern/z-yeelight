@@ -1,0 +1,38 @@
+.light-control {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  background: $primary;
+  border-radius: .5rem;
+  box-shadow: .5rem .5rem 1.5rem $black;
+
+  .light-control-header {
+    display: flex;
+    align-items: center;
+
+    .light-icon {
+      font-size: 1.25rem;
+      margin-right: 1rem;
+    }
+
+    .light-info {
+      flex: 1;
+
+      .name {
+        font-weight: bold;
+      }
+
+      .location {
+        font-size: .5rem;
+        font-style: italic;
+        color: rgba($white, .75);
+        padding: .2rem 0;
+      }
+    }
+  }
+
+  .light-control-content {
+    flex: 1;
+  }
+}

@@ -7,13 +7,13 @@ class LightsPage extends Component {
   render() {
     let list
     if (this.props.loading) {
-      list = (<div className="center">Recherche en cours...</div>)
+      list = (<div id="favorites"><p class="center">Looking for light bulbs...</p></div>)
     } else if (this.props.lights.length) {
       list = this.props.lights.map(light => (
         <LightItem key={ light.id } light={ light } />
       ))
     } else {
-      list = (<div className="center">Aucune ampoule détectée.</div>)
+      list = (<div id="favorites"><p class="center">No light bulb found.</p></div>)
     }
 
     return (

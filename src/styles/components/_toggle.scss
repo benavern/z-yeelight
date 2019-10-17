@@ -1,0 +1,26 @@
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 2.6em;
+  height: 1.3em;
+  background-color: rgba($white, .3);
+  border-radius: .6em;
+  cursor: pointer;
+
+  .state {
+    position: absolute;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: $white;
+    border-radius: 50%;
+    top: .15em;
+    left: .15em;
+    transform: translateX(0);
+    transition: transform .3s;
+
+    &.on {
+      transform: translate(1.3em)
+    }
+  }
+}
