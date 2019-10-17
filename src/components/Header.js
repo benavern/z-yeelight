@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Icon from './Icon'
 import { connect } from 'react-redux'
 import { discover } from '../store/actions/lights'
-const { remote } = window.require('electron')
+const { remote, shell } = window.require('electron')
 
 class Header extends Component {
   render() {
@@ -14,7 +14,14 @@ class Header extends Component {
           </div>
 
           <div className="logo-texts">
-            <div className="logo-copyright">Made by <a href="https://benjamin.caradeuc.info">Benjamin</a></div>
+            <div className="logo-copyright">
+              Made by
+              <a
+                href="https://benjamin.caradeuc.info"
+                onClick={ this.openMyWebsite }>
+                Benjamin
+              </a>
+            </div>
             <div className="logo-title move">Z-Yeelight</div>
           </div>
 
@@ -30,6 +37,11 @@ class Header extends Component {
         </div>
       </header>
     )
+  }
+
+  openMyWebsite(e) {
+    e.preventDefault()
+    shell.openExternal('https://benjamin.caradeuc.info')
   }
 
   quit() {
