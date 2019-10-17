@@ -28,13 +28,11 @@ class LightPage extends Component {
   }
 
   setColor(light, color) {
-    this.setState({ color: color.rgb })
     this.props.setColor(light, color.rgb)
   }
 
-  setBright(light, color) {
-    this.setState({ color: color.rgb })
-    const brightness = Math.max(1, color.rgb.a * 100)
+  setBright(light, bright) {
+    const brightness = Math.max(1, bright) // yeelight bulb does not support 0% brightness
     this.props.setBright(light, brightness)
   }
 

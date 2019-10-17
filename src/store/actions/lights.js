@@ -8,7 +8,7 @@ export function discover () {
       type: 'DISCOVER_START'
     })
 
-    ipcRenderer.on('discover:success', (e, lights) => {
+    ipcRenderer.once('discover:success', (e, lights) => {
       dispatch({
         type: 'DISCOVER_SUCCESS',
         payload: lights

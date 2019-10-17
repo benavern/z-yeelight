@@ -6,7 +6,7 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'DISCOVER_START':
-      return { list: [], loading: true }
+      return { list: state.list, loading: true }
 
     case 'DISCOVER_SUCCESS':
       const list = action.payload.reduce((lights, curr) => {

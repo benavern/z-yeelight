@@ -24,6 +24,11 @@ body {
   padding: 0;
 }
 
+a:focus,
+button:focus {
+  outline: none;
+}
+
 #root {
   height: 100%;
   display: flex;

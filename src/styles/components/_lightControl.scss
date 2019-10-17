@@ -34,5 +34,9 @@
 
   .light-control-content {
     flex: 1;
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 }

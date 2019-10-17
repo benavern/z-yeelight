@@ -1,11 +1,38 @@
 import React, { Component } from 'react'
+import iro from '@jaames/iro'
+import iroTransparencyPlugin from 'iro-transparency-plugin';
 import Icon from './Icon'
 import Toggle from './Toggle'
 
 export default class LightControl extends Component {
+
+  constructor(props) {
+    super(props)
+    this.colorPickerRef = React.createRef();
+    this.colorPicker = null;
+    iro.use(iroTransparencyPlugin);
+  }
+
+  componentDidMount() {
+    this.colorPicker = new iro.ColorPicker(this.colorPickerRef.current, {
+      width: 230,
+      color: this.getRGBColor(),
+      borderWidth: 1,
+      wheelLightness: false, // deactivate brightness slider effect on the wheel
+      transparency: true,
+      layout: [{ component: iro.ui.Wheel }] // without lightness slider
+    })
+
+    this.colorPicker.on('input:end', e => this.setColor(e))
+  }
+
+  componentWillUnmount() {
+    this.colorPicker.off()
+  }
+
   render() {
     return (
-      <div className="light-control" style={{backgroundColor: this.getRGBColor()}}>
+      <div className="light-control" style={{backgroundColor: this.getBackgroundColor()}}>
         <div className="light-control-header">
           <div className="light-icon">
             <Icon name="unknown-bulb" inline />
@@ -27,7 +54,7 @@ export default class LightControl extends Component {
         </div>
 
         <div className="light-control-content">
-
+          <div className="color-picker" ref={this.colorPickerRef}></div>
         </div>
       </div>
     )
@@ -37,17 +64,42 @@ export default class LightControl extends Component {
     this.props.setPower(this.props.light, this.props.light.status !== 'on')
   }
 
+  setColor(color) {
+    if (color.rgba.a === this.getRgba().a){
+      this.props.setColor(this.props.light, color)
+    } else {
+      this.props.setBright(this.props.light, color.rgba.a * 100)
+    }
+  }
+
   getRGBColor() {
+    const { r, g, b } = this.getRgb()
+    return `rgba(${r}, ${g}, ${b}, .8)`
+  }
+
+  getBackgroundColor() {
     if (this.props.light.status !== 'on') {
       return 'rgba(0, 0, 0, .5)'
     }
-    // https://codegolf.stackexchange.com/a/43159
-    const r = this.props.light.rgb >> 16
-    // eslint-disable-next-line no-mixed-operators
-    const g = this.props.light.rgb >> 8 & 255
-    const b = this.props.light.rgb & 255
-
+    const { r, g, b } = this.getRgb()
     return `rgba(${r}, ${g}, ${b}, .8)`
+  }
+
+  getRgb() {
+    // https://codegolf.stackexchange.com/a/43159
+    return {
+      r: this.props.light.rgb >> 16,
+      // eslint-disable-next-line no-mixed-operators
+      g: this.props.light.rgb >> 8 & 255,
+      b: this.props.light.rgb & 255
+    }
+  }
+
+  getRgba() {
+    return {
+      ...this.getRgb(),
+      a: this.props.light.bright / 100
+    }
   }
 }
 
