@@ -65,10 +65,11 @@ export default class LightControl extends Component {
   }
 
   setColor(color) {
-    if (color.rgba.a === this.getRgba().a){
+    const newBright = Math.round(color.rgba.a * 100)
+    if (newBright === this.getRgba().a * 100) {
       this.props.setColor(this.props.light, color)
     } else {
-      this.props.setBright(this.props.light, color.rgba.a * 100)
+      this.props.setBright(this.props.light, newBright)
     }
   }
 
@@ -98,7 +99,7 @@ export default class LightControl extends Component {
   getRgba() {
     return {
       ...this.getRgb(),
-      a: this.props.light.bright / 100
+      a: Math.round(this.props.light.bright) / 100
     }
   }
 }
