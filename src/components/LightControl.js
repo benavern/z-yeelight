@@ -3,6 +3,7 @@ import iro from '@jaames/iro'
 import iroTransparencyPlugin from 'iro-transparency-plugin';
 import Icon from './Icon'
 import Toggle from './Toggle'
+import { get } from 'lodash'
 
 export default class LightControl extends Component {
 
@@ -31,16 +32,24 @@ export default class LightControl extends Component {
   }
 
   render() {
+
+    const item = {
+      icon: get(this.props, 'light.favData.icon', 'unknown-bulb'),
+      name: get(this.props, 'light.favData.name', 'Unknown')
+    }
+
+    console.log(this.props.light)
+
     return (
       <div className="light-control" style={{backgroundColor: this.getBackgroundColor()}}>
         <div className="light-control-header">
           <div className="light-icon">
-            <Icon name="unknown-bulb" inline />
+            <Icon name={item.icon} inline />
           </div>
 
           <div className="light-info">
             <div className="name">
-              Bureau
+              {item.name}
             </div>
 
             <div className="location">

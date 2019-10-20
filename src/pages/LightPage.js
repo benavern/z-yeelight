@@ -42,7 +42,10 @@ class LightPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  light: (id) => state.lights.list[id]
+  light: (light) => ({
+    ...state.lights.list[light],
+    favData: state.db.favorites[light]
+  })
 })
 
 const mapDispatchToProps = dispatch => ({
