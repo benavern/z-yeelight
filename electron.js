@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const lightBus = require('./light/bus')
+const db = require('./db')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -52,6 +53,12 @@ function createWindow() {
 
   // Connect ipc bus with z-yeelight lib
   lightBus(ipcMain)
+
+  // Connect ipc bus with db
+  new db({
+    name: 'com.github.benavern.z-yeelight',
+    bus: ipcMain
+  })
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

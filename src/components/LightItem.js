@@ -1,21 +1,42 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from './Icon'
+import { get } from 'lodash'
 
 export default class LightItem extends Component {
   render () {
+
+    let item
+    if (this.props.unknown) {
+      item = {
+        baseUrl: '/favorites/add',
+        icon: 'unknown-bulb',
+        name: 'Unknown',
+        color: 'rgba(50, 40, 50, .75)',
+        cta: 'plus'
+      }
+    } else {
+      item = {
+        baseUrl: '/light',
+        icon: get(this.props, 'light.favData.icon', 'unknown-bulb'),
+        name: get(this.props, 'light.favData.name', 'Unknown'),
+        color: this.getRGBColor(),
+        cta: 'arrow-right'
+      }
+    }
+
     return (
       <Link
-        to={`/light/${ this.props.light.id }`}
+        to={`${item.baseUrl}/${ this.props.light.id }`}
         className="light-item"
-        style={{backgroundColor: this.getRGBColor()}}>
+        style={{backgroundColor: item.color}}>
         <div className="light-icon">
-          <Icon name="unknown-bulb" inline />
+          <Icon name={item.icon} inline />
         </div>
 
         <div className="light-info">
           <div className="name">
-            Bureau
+            {item.name}
           </div>
 
           <div className="location">
@@ -23,7 +44,7 @@ export default class LightItem extends Component {
           </div>
         </div>
 
-        <Icon name="arrow-right" inline />
+        <Icon name={item.cta} inline />
       </Link>
     )
   }

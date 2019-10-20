@@ -6,9 +6,9 @@ import LightControl from '../components/LightControl'
 class LightPage extends Component {
 
   render() {
-    const currentLight = this.props.currentLight(this.props.match.params.id)
+    const light = this.props.light(this.props.match.params.id)
 
-    if (!currentLight) {
+    if (!light) {
       return (
         <div id="light">
           <p className="center">This light bulb does not exist.</p>
@@ -19,7 +19,7 @@ class LightPage extends Component {
     return (
       <div id="light">
         <LightControl
-          light={currentLight}
+          light={light}
           setPower={(...args) => this.setPower(...args)}
           setColor={(...args) => this.setColor(...args)}
           setBright={(...args) => this.setBright(...args)} />
@@ -42,7 +42,7 @@ class LightPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentLight: (id) => state.lights.list[id]
+  light: (id) => state.lights.list[id]
 })
 
 const mapDispatchToProps = dispatch => ({

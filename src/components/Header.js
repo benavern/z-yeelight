@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Icon from './Icon'
 import { connect } from 'react-redux'
 import { discover } from '../store/actions/lights'
+import { getFavorites } from '../store/actions/db'
 const { remote, shell } = window.require('electron')
 
 class Header extends Component {
@@ -26,7 +27,7 @@ class Header extends Component {
           </div>
 
           <div className="window-actions">
-            <button onClick={ () => this.props.discover() }>
+            <button onClick={ () => this.refresh() }>
               <Icon name="refresh" className={ this.props.loading ? 'rotate' : ''} />
             </button>
 
@@ -37,6 +38,11 @@ class Header extends Component {
         </div>
       </header>
     )
+  }
+
+  refresh() {
+    this.props.discover()
+    this.props.getFavorites()
   }
 
   openMyWebsite(e) {
@@ -54,7 +60,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  discover: () => dispatch(discover())
+  discover: () => dispatch(discover()),
+  getFavorites: () => dispatch(getFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

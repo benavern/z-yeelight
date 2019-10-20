@@ -26,6 +26,7 @@
   "dependencies": {
     "@jaames/iro": "^4.5.1",
     "iro-transparency-plugin": "^1.0.2",
+    "lodash": "^4.17.15",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
@@ -50,7 +51,8 @@
   "nodemonConfig": {
     "watch": [
       "electron.js",
-      "light/*"
+      "light/*",
+      "db/*"
     ],
     "delay": "1000"
   },

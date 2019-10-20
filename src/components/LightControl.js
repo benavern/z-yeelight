@@ -16,7 +16,7 @@ export default class LightControl extends Component {
   componentDidMount() {
     this.colorPicker = new iro.ColorPicker(this.colorPickerRef.current, {
       width: 230,
-      color: this.getRGBColor(),
+      color: this.getRgba(),
       borderWidth: 1,
       wheelLightness: false, // deactivate brightness slider effect on the wheel
       transparency: true,
@@ -71,11 +71,6 @@ export default class LightControl extends Component {
     } else {
       this.props.setBright(this.props.light, newBright)
     }
-  }
-
-  getRGBColor() {
-    const { r, g, b } = this.getRgb()
-    return `rgba(${r}, ${g}, ${b}, .8)`
   }
 
   getBackgroundColor() {

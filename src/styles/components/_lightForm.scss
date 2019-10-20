@@ -1,0 +1,119 @@
+.light-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1rem;
+  background: $primary;
+  border-radius: .5rem;
+  box-shadow: .5rem .5rem 1.5rem $black;
+
+  .light-form-header {
+    display: flex;
+    align-items: center;
+
+    .light-icon {
+      font-size: 1.25rem;
+      margin-right: 1rem;
+    }
+
+    .light-info {
+      flex: 1;
+
+      .name {
+        font-weight: bold;
+      }
+
+      .location {
+        font-size: .5rem;
+        font-style: italic;
+        color: rgba($white, .75);
+        padding: .2rem 0;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 .5rem;
+    height: 100%;
+
+    .form-item {
+      margin: 1rem 0 0;
+    }
+
+    label {
+      font-size: .5rem;
+      display: block;
+    }
+
+    input {
+      background: rgba($white, .2);
+      padding: .5rem 1rem;
+      margin-top: .25rem;
+      border: none;
+      border-radius: .25rem;
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      display: block;
+      width: 100%;
+
+      &:focus {
+        box-shadow: 2px 2px .5rem rgba($black, .3);
+      }
+    }
+
+    .icon-input {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .icons-list {
+        flex: 1;
+        height: 100%;
+        background: rgba($white, .2);
+        padding: .5rem 1rem;
+        margin-top: .25rem;
+        border-radius: .25rem;
+
+        button {
+          color: inherit;
+          font-size: inherit;
+          font-family: inherit;
+          background: none;
+          border: none;
+          margin: .25rem;
+          opacity: .5;
+
+          &:hover,
+          &.selected {
+            cursor: pointer;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .submit button {
+      background: rgba($white, .2);
+      padding: .5rem 1.5rem;
+      margin-top: .25rem;
+      border: none;
+      border-radius: .25rem;
+      color: inherit;
+      font-family: inherit;
+      font-size: .5rem;
+
+      &:hover:not(:disabled) {
+        cursor: pointer;
+        background: rgba($white, .5);
+      }
+
+      &:disabled {
+        opacity: .3;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

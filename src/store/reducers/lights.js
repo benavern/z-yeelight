@@ -1,5 +1,5 @@
 const defaultState = {
-  list: [],
+  list: {},
   loading: false
 }
 
