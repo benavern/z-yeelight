@@ -2,7 +2,8 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 const lightBus = require('./light/bus')
-const db = require('./db')
+const Db = require('./db')
+const Indicator = require('./indicator')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,7 +16,7 @@ function createWindow() {
     width: 400,
     height: 600,
     resizable: false,
-    alwaysOnTop: true,
+    // alwaysOnTop: true,
     frame: false,
     backgroundColor: '#006464',
     webPreferences: {
@@ -55,9 +56,15 @@ function createWindow() {
   lightBus(ipcMain)
 
   // Connect ipc bus with db
-  new db({
+  const db = new Db({
     name: 'com.github.benavern.z-yeelight',
     bus: ipcMain
+  })
+
+  // Connect the app indicator
+  new Indicator({
+    bus: ipcMain,
+    db
   })
 
   // Emitted when the window is closed.

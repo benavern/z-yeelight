@@ -9,6 +9,8 @@ export function discover () {
     })
 
     ipcRenderer.once('discover:success', (e, lights) => {
+      ipcRenderer.send('update:indicator', lights)
+
       dispatch({
         type: 'DISCOVER_SUCCESS',
         payload: lights

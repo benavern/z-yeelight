@@ -74,7 +74,7 @@ function setBright(light, bright) {
   return new Promise(async (success, fail) => {
     try {
       await device.connect()
-      await device.setBright(bright).catch(e => console.log(e))
+      await device.setBright(bright)
       await device.disconnect()
       success()
     } catch (error) {
