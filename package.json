@@ -36,7 +36,7 @@
     "yeelight-awesome": "^1.0.12"
   },
   "devDependencies": {
-    "electron": "^6.0.12",
+    "electron": "^7.2.4",
     "electron-devtools-installer": "^2.2.4",
     "electron-installer-debian": "^2.0.1",
     "electron-packager": "^14.0.6",
