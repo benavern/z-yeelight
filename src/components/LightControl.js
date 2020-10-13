@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import iro from '@jaames/iro'
-import iroTransparencyPlugin from 'iro-transparency-plugin';
 import Icon from './Icon'
 import Toggle from './Toggle'
 import { get } from 'lodash'
@@ -11,7 +10,6 @@ export default class LightControl extends Component {
     super(props)
     this.colorPickerRef = React.createRef();
     this.colorPicker = null;
-    iro.use(iroTransparencyPlugin);
   }
 
   componentDidMount() {
@@ -19,9 +17,13 @@ export default class LightControl extends Component {
       width: 230,
       color: this.getRgba(),
       borderWidth: 1,
-      wheelLightness: false, // deactivate brightness slider effect on the wheel
-      transparency: true,
-      layout: [{ component: iro.ui.Wheel }] // without lightness slider
+      layout: [
+        { component: iro.ui.Wheel },
+        {
+          component: iro.ui.Slider,
+          options: { sliderType: 'alpha' }
+        },
+      ]
     })
 
     this.colorPicker.on('input:end', e => this.setColor(e))

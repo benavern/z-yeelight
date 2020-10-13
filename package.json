@@ -24,8 +24,7 @@
     "cleanup": "rimraf build dist installers"
   },
   "dependencies": {
-    "@jaames/iro": "^4.5.3",
-    "iro-transparency-plugin": "^1.0.2",
+    "@jaames/iro": "^5.2.3",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
