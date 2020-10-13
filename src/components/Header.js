@@ -51,7 +51,7 @@ class Header extends Component {
   }
 
   quit() {
-    remote.getCurrentWindow().close();
+    remote.getCurrentWindow().close()
   }
 }
 
