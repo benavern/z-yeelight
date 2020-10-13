@@ -24,26 +24,26 @@
     "cleanup": "rimraf build dist installers"
   },
   "dependencies": {
-    "@jaames/iro": "^4.5.1",
+    "@jaames/iro": "^4.5.3",
     "iro-transparency-plugin": "^1.0.2",
-    "lodash": "^4.17.15",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
-    "redux": "^4.0.4",
+    "lodash": "^4.17.20",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "yeelight-awesome": "^1.0.12"
   },
   "devDependencies": {
-    "electron": "^6.0.12",
+    "electron": "^6.1.12",
     "electron-devtools-installer": "^2.2.4",
     "electron-installer-debian": "^2.0.1",
-    "electron-packager": "^14.0.6",
+    "electron-packager": "^14.2.1",
     "foreman": "^3.0.1",
-    "node-sass": "^4.12.0",
-    "nodemon": "^1.19.3",
-    "react-scripts": "^3.2.0"
+    "node-sass": "^4.14.1",
+    "nodemon": "^1.19.4",
+    "react-scripts": "^3.4.3"
   },
   "eslintConfig": {
     "extends": "react-app"
