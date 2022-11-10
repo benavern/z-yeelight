@@ -37,7 +37,7 @@
     "yeelight-awesome": "^1.0.12"
   },
   "devDependencies": {
-    "electron": "^10.1.3",
+    "electron": "^18.3.7",
     "electron-devtools-installer": "^3.1.1",
     "electron-packager": "^15.1.0",
     "foreman": "^3.0.1",
