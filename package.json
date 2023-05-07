@@ -43,7 +43,7 @@
     "foreman": "^3.0.1",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.5",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^5.0.1"
   },
   "optionalDependencies": {
     "electron-installer-debian": "^3.1.0"
